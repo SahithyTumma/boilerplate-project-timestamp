@@ -30,10 +30,13 @@ app.get("/api/:date?", function(req, res) {
   let dateObj;
   if (!date) {
     dateObj = new Date();
+    console.log("1",dateObj);
   } else if (!isNaN(date)) {
-    dateObj = new Date(parseInt(date)); // Parse Unix timestamp
+    dateObj = new Date(parseInt(date));
+    console.log("2",dateObj);
   } else {
     dateObj = new Date(date);
+    console.log("3",dateObj);
     if (isNaN(dateObj)) {
       return res.json({ error: "Invalid Date" });
     }
